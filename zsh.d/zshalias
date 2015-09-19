@@ -3,26 +3,28 @@ alias -g G='| grep'
 alias -g H='| head'
 alias -g T='| tail'
 
+alias st="svn status"
+alias gs="git status"
+alias tig="tig --all"
+
 alias v="vim"
 alias emacs="emacs -nw"
-alias ls="la"
-
-alias tig="tig --all"
+alias e="emacs -nw"
+alias g="git"
+alias t="tig"
 
 alias tex="platex"
 alias bib="pbibtex"
 alias dvi="dvipdfmx"
 
-alias startvm="VBoxManage startvm ubuntu --type=headless"
-alias pausevm="VBoxManage controlvm ubuntu pause"
-alias resumevm="VBoxManage controlvm ubuntu resume"
+alias arena="sh ~/dotfiles/src/topcoder.sh"
+
+alias dash="open dash://"
+
+alias vmstart="VBoxManage startvm CentOS7 --type=headless"
+alias vmpause="VBoxManage controlvm CentOS7 pause"
+alias vmresume="VBoxManage controlvm CentOS7 resume"
 alias vmlist="VBoxManage list runningvms"
-
-alias rpi="ssh yusuke@192.168.0.8"
-
-alias coco="ssh yusuke_sato@coco.shino.ecei.tohoku.ac.jp"
-alias nanaco="ssh mitsugu@10.32.228.24"
-alias deco="ssh mitugu@10.32.228.25"
 
 alias -s py=python
 

@@ -1,17 +1,16 @@
 # -*- sh -*-
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-
-function chpwd(){ ls -lhAF --color=auto }
 # 言語設定
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages/
 
 # キーバインド
-## Emacsキーバインドを使う。
-bindkey -e
+## viキーバインドを使う。
+bindkey -v
+bindkey "^P" up-line-or-history
+bindkey "^N" down-line-or-history
 
 # ディレクトリ移動
 ## ディレクトリ名だけでcdする。
@@ -311,31 +310,6 @@ WORDCHARS=${WORDCHARS:s,/,,}
 WORDCHARS="${WORDCHARS}|"
 
 
-# alias
-## ページャーを使いやすくする。
-### grep -r def *.rb L -> grep -r def *.rb |& lv
-alias -g L="|& $PAGER"
-## grepを使いやすくする。
-alias -g G='| grep'
-## 後はおまけ。
-alias -g H='| head'
-alias -g T='| tail'
-alias -g S='| sed'
-
-## 完全に削除。
-alias rr="command rm -rf"
-## ファイル操作を確認する。
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
-
-## pushd/popdのショートカット。
-alias pd="pushd"
-alias po="popd"
-
-alias tmux="tmux -2"
-
-
 ## lsとpsの設定
 ### ls: できるだけGNU lsを使う。
 ### ps: 自分関連のプロセスのみ表示。
@@ -363,21 +337,29 @@ case $(uname) in
 	alias ps="ps -fU$(whoami) --forest"
 	;;
 esac
+alias ls="la"
 
+
+# 共通alias
+alias -g L="|& $PAGER"
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g S='| sed'
+## 完全に削除
+alias rr="command rm -rf"
+## ファイル操作を確認する
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+## pushd/popdのショートカット
+alias pd="pushd"
+alias po="popd"
 ## grepの表示を改善
-### 2013-01-24
 alias grep="grep -n --color=auto"
-
-## Emacsのショートカット。
-### 2013-02-13
-alias e="emacs -nw"
-### -nw: ターミナル内でEmacsを起動する。
-### 2011-11-06
-alias enw="emacs -nw"
-
-## exitのショートカット。
-### 2011-11-06
+## exitのショートカット
 alias x="exit"
+
 
 ## カスタムaliasの設定
 ### ~/zsh.d/zshalias → ~/zshaliasの順に探して
@@ -413,10 +395,6 @@ update_title() {
     echo -n "(${command})"
     print -n -P " %n@%m:%~\a"
 }
-
-## cd後、ls
-
-
 ## X環境上でだけウィンドウタイトルを変える。
 if [ -n "$DISPLAY" ]; then
     preexec_functions=($preexec_functions update_title)
@@ -427,7 +405,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 ## OS XにおいてGNUPLOTを使用可能にする(x11環境)
 export GNUTERM=x11
-
 
 ## z
 # https://github.com/rupa/z.git
