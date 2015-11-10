@@ -103,8 +103,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nnoremap <c-h> ^
-nnoremap <c-l> $
+" windowの移動と競合している
+"nnoremap <C-h> 0
+"nnoremap <C-l> $
 nnoremap <Space>/ *
 
 " インサートモード

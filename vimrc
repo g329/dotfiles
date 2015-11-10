@@ -70,9 +70,9 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-noremap <Space>h 0
-noremap <Space>l $
-nnoremap <Space>/ *
+noremap <c-h> 0
+noremap <c-l> $
+nnoremap <c-/>/ *
 
 " インサートモード
 inoremap <c-a> <home>
